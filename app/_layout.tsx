@@ -34,6 +34,7 @@ export default function RootLayout() {
         <Stack.Screen name="+not-found" />
         <Stack.Screen name="call" options={{ headerShown: false }} />
         <Stack.Screen name="dialpad" options={{ title: "Bàn phím" }} />
+        <Stack.Screen name="detail" options={{ title: 'Chi tiết liên hệ', headerShown: false }} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>

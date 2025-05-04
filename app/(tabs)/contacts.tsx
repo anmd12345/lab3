@@ -64,11 +64,13 @@ export default function ContactsScreen() {
   const router = useRouter();
   const renderContact = ({ item }: any) => (
     <TouchableOpacity style={styles.contactRow} onPress={() => handleCallPress(item.phone)}>
+    <TouchableOpacity onPress={() => router.push({ pathname: '/detail', params: { contact: JSON.stringify(item) } })}>
       <View style={[styles.avatar, { backgroundColor: getColor(item.initial) }]}>
         <Text style={styles.avatarText}>{item.initial}</Text>
       </View>
-      <Text style={styles.contactName}>{item.name}</Text>
     </TouchableOpacity>
+    <Text style={styles.contactName}>{item.name}</Text>
+  </TouchableOpacity>
   );
 
    return (
