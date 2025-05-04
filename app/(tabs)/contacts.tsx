@@ -41,8 +41,8 @@ export default function ContactsScreen() {
 
   const handleCallPress = (phone: string) => {
     router.push({
-      pathname: '/call',  // Đường dẫn tới màn hình gọi điện
-      params: { number: phone },  // Truyền số điện thoại
+      pathname: '/call',  
+      params: { number: phone }, 
     });
   };
   const fetchContacts = async () => {
