@@ -32,6 +32,8 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
+        <Stack.Screen name="call" options={{ headerShown: false }} />
+        <Stack.Screen name="dialpad" options={{ title: "Bàn phím" }} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>

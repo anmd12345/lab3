@@ -1,45 +1,47 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
-
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+import { Ionicons } from '@expo/vector-icons';
+import Icon from "react-native-vector-icons/Ionicons";
+export default function TabsLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+    <Tabs>
       <Tabs.Screen
-        name="index"
+        name="favorites"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Yêu thích',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="heart" color={color} size={size} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="recents"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Gần đây',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="time" color={color} size={size} />
+          ),
+        }}
+
+      />
+      <Tabs.Screen
+        name="contacts"
+        options={{
+          title: 'Danh bạ',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="people" color={color} size={size} />
+          ),
         }}
       />
+     <Tabs.Screen
+        name="dialpad"
+        options={{
+          title: 'Bàn phím',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="apps" color={color} size={size} />
+          ),
+        }}
+      />
+      
     </Tabs>
   );
 }
